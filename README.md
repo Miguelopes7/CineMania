@@ -1,5 +1,5 @@
 # CineMania
-Website de Reviews de Cinema feito em HTML, CSS, PHP e JavaScript.
+Website de Reviews de Cinema. Feito em HTML, CSS, PHP e JavaScript.
 
 Pode transferir a pasta CineMania com o projeto completo ou transferir por partes zipadas.
 
