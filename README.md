@@ -7,4 +7,4 @@ Para ver a funcionar pode fazê-lo através dos seguintes passos:
 3. Ativar o serviço Apache e MySQL.
 4. Abrir o seu browser de preferência e ir para o localhost através do URL.
 
-Sempre que iniciar denovo o seu dispositivo, apenas precisará de repetir os passos 3 e 4.
+Sempre que iniciar o seu dispositivo, apenas precisará de repetir os passos 3 e 4.
