@@ -1,0 +1,1287 @@
+@import url("https://fonts.googleapis.com/css2?family=Alkatra:wght@400;500;600;700&family=Roboto:wght@100;300;400;500;700&display=swap");
+
+/* LETRAS
+font-family: 'Alkatra', cursive; - Letra Títulos
+font-family: 'Roboto', sans-serif; - Letra Texto
+*/
+
+/* *************** GERAL *************** */ 
+*{ 
+    margin: 0px;
+    padding: 0px;
+    font-size: 100%;
+    font-weight: 400;
+    border: none;
+    box-sizing: border-box; /* mantém tudo dentro da caixa (browser) */
+    --banner-imagem-wide: url('imagens/CinemaniaBannerWide1.0.png');
+    --banner-imagem: url('imagens/CinemaniaBanner.png');
+    font-family: 'Roboto', sans-serif;
+}
+
+::selection{
+    background-color: var(--cineColor);
+    color: white;
+}
+
+a{ 
+    text-decoration: none; /* Retira sublinhados */
+    color: #6F9CC2;
+}
+
+a:hover{
+    color: #008cff;
+}
+
+ul{
+    list-style: none;
+}
+
+img{
+    max-width: 100%;
+}
+
+body{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('imagens/movies-wallpaper.webp');
+    background-size: contain;
+}
+
+:root{
+    --cor-textoNav: #A9A7AC;
+    --gradient-logotipo: linear-gradient(to right, #930000, #580000, #410000, #010000, #000019, #00001F, #000031, #000054)
+}
+
+.btn{ /* Botões */
+    background-color: transparent;
+    color: var(--cineColor);
+    border-color: var(--cineColor);
+    box-shadow: 5px 5px 5px black;
+    font-family: 'Alkatra', cursive;
+}
+
+.btn:hover{
+    background-color: var(--cineColor);
+    color: white;
+    box-shadow: 10px 10px 10px black;
+}
+
+.bold{
+    font-weight: 700;
+    color: white;
+}
+.bold_uppercase{
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.success-placeholder::placeholder {
+    color: white;
+    font-weight: 700;
+}
+
+[data-bs-theme="dark"] { /* modo dark (escuro) */
+    --cor-main: black;
+    --cor-fundo: #000000;
+    --cor-texto: rgb(180, 180, 180);
+    --cor-texto-legivel: rgb(200, 200, 200);
+    --cor-contraste: white;
+    --cor-navbar: rgb(30, 30, 30);
+    --activecolor: darkred;
+    --cineColor: rgba(201, 111, 38, 1);
+}
+
+[data-bs-theme="light"] { /* modo light (claro) */
+    --cor-main: white;
+    --cor-fundo: #a0a0a0;
+    --cor-texto: rgb(180, 180, 180);
+    --cor-texto-legivel: rgb(100, 100, 100);
+    --cor-contraste: black;
+    --cor-navbar: rgb(204, 202, 202);
+    --activecolor: rgb(180, 25, 25);
+    --cineColor: rgba(201, 111, 38, 1);
+}
+
+/* *************** NAVBAR *************** */
+.navbar {
+    top: 0;
+    left: 0;
+    height: 65px;
+    width: 100%;
+    position: fixed;
+    background-color: var(--cor-navbar);
+}
+
+.navbar-brand img { /* ícone da navbar */
+    width: 50px;
+    height: 50px;
+    float: left;
+    position: relative;
+}
+
+.navbar-brand img:hover{
+    -webkit-filter: drop-shadow(1px 1px 0 white)
+                    drop-shadow(-1px 1px 0 white)
+                    drop-shadow(1px -1px 0 white)
+                    drop-shadow(-1px -1px 0 white);
+
+    filter: drop-shadow(1px 1px 0 white)
+            drop-shadow(-1px 1px 0 white)
+            drop-shadow(1px -1px 0 white)
+            drop-shadow(-1px -1px 0 white);
+}
+
+
+#darkModeButton{
+    background-color: transparent;
+    box-shadow: 5px 5px 5px black;
+    border: solid 1px black;
+    border-radius: 5px;
+    margin-right: 20px;
+    padding: 5px;
+    font-family: 'Alkatra', cursive;
+}
+
+#darkModeButton:hover{
+    box-shadow: 10px 10px 10px black;
+}
+
+.nav_form{
+    display: flex;
+    justify-content: right;
+    flex-grow: 2;
+}
+
+.form-control{ /* barra de pesquisa */
+    width: auto;
+    margin-right: 10px;
+    font-family: 'Alkatra', cursive;
+}
+
+.form-control:hover{
+    border: solid 1px white;
+}
+
+#itemnav{ /* itens na nav (Home, Categorias, etc) */
+    color: white;
+    font-family: 'Alkatra', cursive;
+}
+
+#itemnav.active{
+    color: var(--activecolor);
+}
+
+#itemnav:hover{
+    border: none;
+    color: var(--cineColor);
+}
+
+.collapsing{
+    display: none;
+    transition: none;
+}
+
+.navbar-toggler { /* toggler: botão que abre menu dropdown */
+    box-shadow: 5px 5px 5px black;
+    text-decoration: none;
+    outline: none;
+    border-color: black;
+    float: right;
+    cursor: pointer;
+}
+
+.navbar-toggler:hover {
+    box-shadow: 10px 10px 10px black;
+}
+
+#navbar_focus{
+    box-shadow: 5px 0px 5px rgba(255, 255, 255, 0.527);
+}
+/* *************** FIM NAVBAR *************** */
+
+
+/* *************** BANNER *************** */
+.banner
+{
+    width: 100%;
+    height: 100px;
+    background-position: center; /* 1º horizontal | 2º vertical. Ex: center top */
+    background-size: contain; /* cover para a imagem cobrir o banner, contain para aparecer a imagem toda */
+    background-repeat: no-repeat;
+}
+
+.banner h4
+{
+    background-color: transparent;
+    color: transparent;
+    display: inline;
+    margin: 0;
+    padding: 10px 20px; /* valores definidos sentido ponteiros relogio (topo, dta, baixo, esq) */
+    border-radius: 10px 30px;
+    transform: scale(1.3);
+    transition: 0.5s;
+}
+
+header:hover .banner h4
+{
+    border-radius: 30px 10px;
+    background-color: rgb(177, 0, 0);
+    color: white;
+    transition: 1s;
+}
+/* *************** FIM BANNER *************** */
+
+
+
+/* *************** INDEX *************** */
+
+.gallery-slider{
+    position: relative; /* permite que você posicione um elemento de forma relativa, mantendo-o no fluxo normal do documento. */
+    margin: 40px 10px 40px;
+}
+
+.swiper-container{
+    position: relative;
+}
+
+.swiper-slide {
+    background-position: center center;
+    background-size: cover;
+    display:flex ;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.swiper-slide h2{ /* Título Filme */
+    font-family: 'Alkatra', cursive;
+}
+.swiper-slide h2, .swiper-slide p{ /* Titulo e Paragrafos */
+    color:#A9A7AC;
+}
+
+.swiper-slide iframe{ /* vídeo do swiper */
+    margin-bottom: 25px; /* margem em relação ás letras por baixo */
+    width: 70vw;
+    height: 40vw;
+    border-radius: 50px;
+}
+
+.swiper-slide #vermais{ /* Botão Ver Mais*/
+    margin-top: 5px;
+}
+
+.-dark{ /* setas swiper slides */
+    border: hidden;
+    border-radius: 6px;
+    color: var(--cineColor);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-100%);
+}
+
+/* *************** FIM INDEX *************** */
+
+
+/* ****************************** SECTIONS ****************************** */
+
+section {
+    padding-top: 70px;
+    margin-top: -50px;
+
+    margin-bottom: 40px;
+
+    & h2 {
+        text-align: center;
+    }
+
+}
+
+section h2{
+    font-family: 'Alkatra', cursive;
+    color: rgb(180, 180, 180);
+    text-align: center;
+    border-bottom: 3px solid var(--cineColor);
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+    transition: 0.5s;
+}
+
+section:hover h2{
+    padding-left: 50px;
+    transition: 0.5s;
+    border-bottom: 3px solid red;
+    color: white;
+}
+
+section p {
+    text-align: justify;
+    font-size: medium;
+    color: rgb(180, 180, 180);
+}
+/* ****************************** FIM SECTIONS ****************************** */
+
+
+/* *************** RODAPÉ *************** */
+.rodape {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    background: var(--gradient-logotipo);
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rodape:hover .siga-nos{
+    color: white;
+}
+
+.social-icons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: end;
+    height: 35px;
+    width: 400px;
+    margin-right: 10px;
+    margin-left: 15px;
+    margin-bottom: 5px;
+}
+.social-icons:hover h4{
+    color: white;
+}
+
+.social-icons h4{
+    font-size: 1.3em;
+    margin-right: 10px;
+    margin-top: 5px;
+    color: var(--cor-textoNav);
+    align-self: flex-end;
+    margin-left: 10px;
+}
+
+.social-icons a{
+    font-size: smaller;
+    color: rgba(255, 255, 255, 0.7);
+    margin-left: 3%;
+    align-self: flex-end;
+    border: none;
+}
+.social-icons a:hover {
+    color: rgb(255, 255, 255);
+}
+
+.copyright{
+    font-size: 13px;
+    width: auto;
+    height: 20px;
+    margin-top: 0px;
+    align-self: center;
+    margin-left: 10px;
+    color: var(--cor-textoNav);
+    
+}
+.copyright:hover{
+    color: white;
+}
+
+/* NEWSLETTER - RODAPÉ */
+.newsletter, .newsletter_header {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+.newsletter_header form{
+    width: 70%;
+}
+.newsletter:hover h2, .newsletter:hover h3, .newsletter_header:hover h2, .newsletter_header:hover h3{
+    color: white;
+}
+.newsletter h2, .newsletter_header h2 {
+    color: var(--cor-textoNav);
+    font-size: 1.3em;
+    margin-left: 10px;
+}
+.newsletter h3, .newsletter_header h3 {
+    color: var(--cor-textoNav);
+    font-size: 1em;
+    margin-left: 10px;
+}
+.newsletter form {
+    margin-left: 20px;
+}
+#emailInput {
+    width: 100%;
+    height: 25px;
+    padding: 5px;
+    margin-bottom: 5px;
+    background-color: #130400;
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+}
+#emailInput:hover{
+    border: solid 1px;
+    color: white;
+}
+#inputRegistar {
+    width: 30%;
+    height: 25px;
+    font-size: 0.8em;
+    background-color: #130400;
+    color: var(--cor-textoNav);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    cursor: pointer;
+}
+#btnRegistar:hover, #inputRegistar:hover{
+    border: solid 1px;
+    color: white;
+}
+
+.mensagemClass{
+    font-size: 0.8em;
+    margin-left: 10px;
+}
+/* *************** FIM RODAPÉ *************** */
+
+
+/* ****************************** OUTRAS PÁGINAS ****************************** */
+
+/* *************** CONTACTOS *************** */
+#contactos .row{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.span_tlf{
+    font-size: 1em;
+    font-weight: 500;
+    color: #808080;
+}
+
+form label{
+    color: white;
+}
+
+.contactos-subtitle{
+    color: white;
+}
+
+#cinemania_contactos{
+    display:inline-flex;
+    justify-content: right;
+}
+
+#contactos p:hover{
+    color: white;
+}
+
+#mensagem_recebida{
+    color: white;
+    font-weight: 700;
+}
+
+/* *************** SOBRE NÓS *************** */
+.sobrenos_div_img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#sobrenos img{
+    max-width: 70%;
+    max-height: 80%;
+    border-radius: 25px;
+}
+
+#sobrenos p:hover{
+    color: white;
+}
+
+/* *************** GALERIA *************** */
+#galeria figure figcaption{
+    text-align: center;
+    text-transform: uppercase;
+    padding: 8px;
+    font-size: 0.8rem;
+    color: rgb(255, 255, 255, 0.5);
+}
+
+#div-galeria {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#div-galeria figure {
+  text-align: center;
+  text-transform: uppercase;
+  padding: 8px;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+#galeria a:hover figure img{
+    filter: saturate(2);
+}
+
+#galeria a:hover figure figcaption{
+    color: red;
+}
+
+#div-galeria_review {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+  
+#div-galeria_review figure{
+    text-align: center;
+    text-transform: uppercase;
+    padding: 8px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+#row_button_review{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+/* *************** FIM GALERIA *************** */
+
+/* *************** CINEMAS *************** */
+#cinemas .row{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#div_cinemas h4{ /* "Cinemas Lisboa:" */
+    color: var(--cor-texto);
+}
+
+#div_cinemas h6:hover, #div_cinemas h4:hover{
+    color: white;
+}
+
+#div_transportes strong{ /* Uber | Táxis */
+    color: var(--cor-texto);
+}
+
+/* *************** FILMES EM EXIBIÇÃO *************** */
+#filme_card{
+    margin-bottom: 25px;
+    background-color: var(--cor-navbar);
+}
+#filme_col1{
+    margin: 15px 5px 5px 25px;
+}
+#filme_col1 img{
+    border-radius: 10px;
+}
+#filme_col1 img:hover{
+    border-radius: 30px;
+}
+#filme_col2{
+    margin: auto;
+}
+#filme_card h5{
+    font-family: 'Alkatra', cursive;
+    color: var(--cor-texto-legivel);
+    text-align: center;
+    border-bottom: 3px solid var(--cineColor);
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+    transition: 0.5s;
+}
+#filme_card:hover h5 {
+    padding-left: 50px;
+    transition: 0.5s;
+    border-bottom: 3px solid red;
+    color: var(--cor-contraste);
+}
+
+#meta-body_em_exibicao{
+    color: var(--cor-texto-legivel);
+}
+
+#meta-body_em_exibicao:hover{
+    color: var(--cor-contraste);
+}
+
+.synopsis_exibicao{
+    margin-top: 10px;
+}
+
+.synopsis_exibicao p{
+    color: var(--cor-texto-legivel);
+}
+.synopsis_exibicao:hover p{
+    color: var(--cor-contraste);
+}
+
+#row_buttons{
+    display: flex;
+    text-align: center;
+}
+
+.buttons-holder, .buttons-holder-single{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.buttons-holder a{ /* botões ver trailer e ver sessões */
+    margin-top: 15px;
+}
+.buttons-holder-single a{ /* 1 botão - ver trailer ou ver sessões */
+    margin-top: 15px;
+}
+/* *************** NOTICIAS *************** */
+.noticias {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.noticias article {
+    width: 48%;
+    margin-bottom: 20px;
+    background-color: transparent;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.noticia-image img { /* imagens das noticias */
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.noticia-image-individual, .review-image-individual { /* pagina de noticia/review individual */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+  
+.noticia-image-individual img {
+    max-width: 50%;
+    max-height: 50%;
+    border-radius: 25px;
+}
+
+.noticias article .noticia-image img:hover{
+    border-radius: 50px;
+}
+
+.noticias article .noticia-content {
+    padding: 20px;
+}
+
+.noticia-category{
+    color: #FECC00;
+}
+
+.noticia-title, .noticia-subtitle, .noticia-date{
+    color: var(--cor-texto);
+}
+
+.noticia-title:hover, .noticia-subtitle:hover{
+    color: white;
+}
+
+.titlebar-subtile{ /* time date noticia */
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.3em;
+    color: rgb(180, 180, 180);
+}
+
+.noticia-individual h5{
+    color: rgb(180, 180, 180);
+}
+
+.noticia-p, .review-p {
+    font-size: 1em;
+}
+
+.noticia-p:hover, .review-p:hover{
+    color: white;
+    cursor: none;
+}
+
+#noticias_col_SM ul li a img, .relatedItems ul.related li a img, .relatedItems ul.related li a img.filmePosterShadow{
+    max-width: 100px;
+    height: auto;
+    float: left;
+    margin-right: 10px;
+}
+
+#noticias_col_SM ul li a:link, #noticias_col_SM ul li a:visited, .relatedItems ul.related li a:link, .relatedItems ul.related li a:visited {
+    text-decoration: none;
+}
+
+#noticias_col_SM ul li, .relatedItems ul.related li {
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    margin-right: 5%;
+    position: relative;
+    text-indent: 0px;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+#noticias_col_SM ul, #noticias_col_SM ul li, .relatedItems ul.related, .relatedItems ul.related li {
+    margin: 0px;
+    padding: 0px;
+    list-style: outside none none;
+}
+
+.filmePosterShadow:hover{
+    -moz-box-shadow: 0px 0px 5px 1px #999;
+    -webkit-box-shadow: 0px 0px 5px 1px #999;
+    box-shadow: 0px 0px 5px 1px #999;
+}
+
+/* *************** REVIEW - Individual *************** */
+
+.review-image-individual img {
+    max-width: 50%;
+    max-height: 50%;
+    border-radius: 25px;
+}
+
+#meta-body_review{
+    color: rgb(180, 180, 180);
+}
+
+#meta-body_review:hover{
+    color: white;
+}
+
+.synopsis_review{
+    margin-top: 10px;
+    color: rgb(180, 180, 180);
+}
+
+.synopsis_review h6{
+    font-family: 'Alkatra', cursive;
+    color: rgb(180, 180, 180);
+    text-align: center;
+    border-bottom: 3px solid var(--cineColor);
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+    transition: 0.5s;
+    font-weight: 700;
+}
+.synopsis_review:hover h6{
+    padding-left: 50px;
+    transition: 0.5s;
+    border-bottom: 3px solid red;
+    color: white;
+}
+
+.synopsis_review:hover p{
+    color: white;
+}
+
+#review_row h4{
+    font-family: 'Alkatra', cursive;
+    color: rgb(180, 180, 180);
+    text-align: center;
+    border-bottom: 3px solid var(--cineColor);
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+    transition: 0.5s;
+}
+#review_row:hover h4{
+    padding-left: 50px;
+    transition: 0.5s;
+    border-bottom: 3px solid red;
+    color: white;
+}
+
+
+/* *************** QUIZ *************** */
+.quiz{
+    height: 62vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+}
+.quiz h1{
+    color: rgb(180, 180, 180);
+}
+
+.quiz h1:hover{
+    color: white;
+    cursor: none;
+}
+
+.quiz main{
+    background-color: var(--cor-navbar);
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 70vw;
+    width: 100vw;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10vh;
+}
+
+.quiz .content{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+
+.question-wrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.spnQtd {
+    color: var(--cineColor);
+    margin-left: 10px;
+}
+
+.spnQtd:hover {
+    font-weight: 700;
+    cursor: none;
+}
+
+.question:hover {
+    color: var(--cor-contraste);
+    font-weight: 700;
+    cursor: help;
+}
+  
+.answers {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.quiz button{
+    width: 100%;
+    text-align: start;
+    padding: 5px;
+    cursor: pointer;
+    font-family: 'Alkatra', cursive;
+    background-color: transparent;
+    color: var(--cineColor);
+    border-color: var(--cineColor);
+    box-shadow: 5px 5px 5px black;
+    border-radius: 5px;
+}
+
+.quiz button:hover{
+    background-color: var(--cineColor);
+    border: none;
+    color: white;
+    box-shadow: 10px 10px 10px black;
+}
+
+.quiz #answer_complete{
+    color: white;
+}
+
+.quiz #answer_complete:hover{
+    background-color: none;
+}
+
+
+.finish {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+}
+  
+.finish button {
+    text-align: center;
+}
+
+/* *************** Extra RGB Jogo Adivinhe *************** */
+.rgb {
+	background-color: #232323;
+	margin: 0;
+}
+
+.quadrado {
+	width: 30%;
+	padding-bottom: 30%;
+	float: left;
+	margin: 1.66%;
+	border-radius: 25%;
+	transition: 0.4s;
+	-webkit-transition: 0.4s;
+	-moz-transition: 0.4s;
+    cursor: pointer;
+}
+
+.quadrado:hover{
+    -moz-box-shadow: 0px 0px 8px 8px #999;
+    -webkit-box-shadow: 0px 0px 8px 8px #999;
+    box-shadow: 0px 0px 8px 8px #999;
+}
+
+.rgb #container {
+	margin: 20px auto;
+	max-width: 300px;
+    min-width: 100px;
+    width: 250px;
+}
+
+.rgb h1 {
+	color: var(--cor-main);
+	text-align: center;
+	background: var(--cineColor);
+	margin: 0;
+	font-weight: normal;
+    font-weight: 400;
+    font-size: 1.8em;
+	text-transform: uppercase;
+	line-height: 1.1;
+	padding: 10px 0;
+}
+
+#colorDisplay {
+    font-weight: 700;
+    font-style: oblique;
+}
+
+#pontuacaoText{
+    filter: drop-shadow(0 0 0.1rem var(--cor-contraste));
+}
+
+#message {
+	display: inline-block;
+	width: 20%;
+}
+
+#stripe {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+	background: var(--cor-main);
+	height: 30px;
+	text-align: center;
+	color: var(--cor-contraste);
+    font-size: 0.9em;
+}
+
+#selected { /* Dificuldade selecionada */
+	color: white;
+	background: var(--cineColor);
+}
+
+.rgb button {
+	border: none;
+	background: none;
+	text-transform: uppercase;
+	height: 100%;
+	font-weight: 700;
+	color: var(--cineColor);
+	letter-spacing: 1px;
+	font-size: inherit;
+	transition: all, 0.3s;
+	-webkit-transition: all, 0.3s;
+	-moz-transition: all, 0.3s;
+	outline: none;
+}
+
+.rgb button:hover {
+	color: white;
+	background: var(--cineColor);
+}
+
+/* ****************************** DEVICE COMPABILITY ****************************** */
+
+/* **** Apenas Com Mouse. Não aplica em touchscreens ***** */
+@media (hover: hover) and (pointer: fine) {
+    .swiper-slide iframe{
+        filter: brightness(75%);
+    }
+    .swiper-slide iframe:hover{
+        -moz-box-shadow: 0px 0px 5px 1px #999; 
+        -webkit-box-shadow: 0px 0px 5px 1px #999; 
+        box-shadow: 0px 0px 5px 1px #999;
+        filter: brightness(100%);
+    }
+    .swiper-button-prev:hover{
+        box-shadow: 2px 2px 3px 2px var(--cineColor);
+    }
+
+    .swiper-button-next:hover{
+        box-shadow: -2px 2px 3px 2px var(--cineColor);
+    }
+}
+
+@media screen and (max-width: 359px) {
+    .quiz main{
+        height: 350px;
+    }
+    .rgb #container {
+        width: 150px;
+    }
+    .newsletter_header form{
+        width: 150%;
+    }
+}
+
+@media screen and (max-width: 767px){
+    .navbar {
+        height: 50px;
+    }
+    .navbar-brand img { /* ícone da navbar */
+        width: 30px;
+        height: 30px;
+    }
+    #darkModeButton{
+        padding: 2px;
+    }
+    .navbar-toggler { /* toggler: botão que abre menu dropdown */
+        padding: 2px 10px 2px;
+    }
+    #filme_row{ /* na review individual, alinha a imagem ao centro */
+        display: flex;
+        justify-content: center;
+    }
+    #filme_card .row{ /* card dos filmes em exibicao */
+        margin-bottom: 20px;
+        display: flex; 
+        justify-content: center;
+    }
+    .rgb #container {
+        width: 200px;
+    }
+    .rgb h1{
+        font-size: 1.5em;
+    }
+    #stripe{
+        font-size: 0.7em;
+    }
+}
+/* *************** SMALL DEVICES - SMARTPHONES *************** */
+@media screen and (min-width: 360px){
+    .banner {
+        background-image: var(--banner-imagem);
+        height: 20vh;
+    }
+    .banner h4 {
+        padding: 5px 10px;
+        transform: scale(1.1);
+        margin-top: 100px;
+    }
+    .quiz main{
+        height: 310px;
+    }
+    .newsletter_header form{
+        width: 80%;
+    }
+
+}
+/* *************** ESCONDE BARRA PESQUISA NA NAVBAR *************** */
+@media screen and (width <= 600px){
+    .nav_form{
+        display: none;
+    }
+    .banner{
+        height: 20vh;
+    }
+    .rgb h1{
+        font-size: medium;
+    }
+    #stripe{
+        font-size: 0.6em;
+    }
+}
+@media screen and (width <= 700px){
+    .newsletter, .social-icons h4{
+        display: none;
+    }
+    .newsletter_header{
+        font-size: 0.8em;
+        margin-top: 10px;
+    }
+}
+@media screen and (width > 700px){
+    .newsletter_header{
+        display: none;
+    }
+}
+/* *************** SMALL DEVICES - TABLETS *************** */
+@media screen and (min-width: 768px){
+    .banner{
+        height: 30vh;
+    }
+    .banner h4 {
+        padding: 8px 15px;
+        transform: scale(1.2);
+        margin-top: 175px;
+    }
+    .quiz main{
+        height: 280px;
+    }
+    .rgb #container {
+        width: 250px;
+    }
+    .rgb h1{
+        font-size: 1.8em;
+    }
+    #stripe{
+        font-size: 0.9em;
+    }
+}
+
+/* *************** MEDIUM DEVICES - TABLETS & DESKTOPS *************** */
+@media screen and (min-width: 960px){
+    .button{
+        width: 30%;
+        float: right;
+        margin-top: 0;
+    }
+    .banner{
+        height: 35vh;
+    }
+    .rgb #container {
+        width: 300px;
+    }
+}
+
+/* *************** ENQUANTO TEM O TOGGLER *************** */
+@media screen and (width < 992px){
+    #linha_nav{
+        margin-top: -5px;
+    }
+    #darkModeButton{
+        margin-right: auto;
+    }
+    .navbar-toggler{
+        margin-left: auto;
+    }
+    #navbarSupportedContent{
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(5, 5, 5, 0.95);
+        padding: 0px 100px 800px;
+    }
+    #dropdown{
+        margin-top: 150px;
+    }
+    .nav_form{
+        margin-right: 30px;
+    }
+    #cinemania_contactos_extrainfo{
+        display: none;
+    }
+    #noticias_cinemania_lg{
+        display: none;
+    }
+    .copyright{
+        font-size: 0.6em;
+    }
+    .newsletter .form_signup, .mensagemClass{
+        font-size: 0.7em;
+    }
+    .newsletter h2, .newsletter h3, .social-icons h4 {
+        font-size: 0.5em;
+    }
+    .social-icons .btn{
+        font-size: 0.5em;
+    }
+}
+
+/* *************** DEIXA DE TER O NAVBAR-TOGGLER *************** */
+@media screen and (min-width: 992px){
+    .navbar-toggler{
+        display: none;
+    }
+    .banner h4 {
+        padding: 9px 17px;
+        margin-top: 200px;
+    }
+    .swiper-button-next {
+        right: 1%;
+    }
+    .swiper-button-prev {
+        left: 1%;
+    }
+    #noticias_cinemania_sm{
+        display: none;
+    }
+    .copyright{
+        font-size: 0.7em;
+    }
+    .newsletter, .social-icons h4 {
+        font-size: 0.7em;
+    }
+    .social-icons a{
+        font-size: 0.8em;
+    }
+}
+
+@media screen and (width < 1200px){
+    .banner{
+        margin-top: 10px;
+    }
+    .banner {
+        background-image: ('imagens/CinemaniaBanner.png');
+    }
+}
+/* *************** LARGE DEVICES - WIDE SCREENS *************** */
+@media screen and (min-width: 1280px){
+    .banner{
+        background-image: var(--banner-imagem-wide);
+        height: 25vh;
+    }
+    
+    .banner h4 {
+        padding: 10px 20px;
+        transform: scale(1.3);
+        margin-top: 225px;
+    }
+
+    .swiper-container{
+        margin: 40px 60px 40px;
+    }
+    
+    .swiper-slide iframe {
+        width: 60vw;
+        height: 30vw;
+    }
+
+    .swiper-button-next {
+        right: 1%;
+    }
+    
+    .swiper-button-prev {
+        left: 1%;
+    }
+    .quiz main{
+        height: 250px;
+    }
+    .newsletter, .social-icons h4, .social-icons a {
+        font-size: 0.9em;
+    }
+}
+
+@media screen and (min-width: 1600px){
+    .banner{
+        height: 30vh;
+    }
+}
