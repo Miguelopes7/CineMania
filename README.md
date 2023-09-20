@@ -8,4 +8,4 @@ Em alternativa, para ver a funcionar pode fazê-lo através dos seguintes passos
 2. Transferir e colocar a pasta CineMania dentro do xamp ("...\xampp\htdocs").
 3. Abrir Xamp e ativar o serviço Apache e MySQL.
 4. Abrir o seu browser de preferência e digitar localhost no URL para aceder ao Cinemania.
-5. Caso pretenda funcionalidades de base de dados, na primeira vez que abrir este site no seu dispositivo, aceder a localhost\install.php para instalar a base de dados.
+5. Caso pretenda funcionalidades de base de dados, na primeira vez que abrir este site no seu dispositivo, aceder a localhost/CineMania/install.php para instalar a base de dados.
