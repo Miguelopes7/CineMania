@@ -1,13 +1,11 @@
 # CineMania
 Website de Reviews de Cinema. Feito em HTML, CSS, PHP e JavaScript.
 
-Pode transferir a pasta CineMania com o projeto completo.
+Disponibilizo uma demonstração em powerpoint do site.
 
-Para ver a funcionar pode fazê-lo através dos seguintes passos:
-1. Colocar a pasta CineMania dentro do "...\xampp\htdocs".
-2. Abrir/Instalar Xamp (ou outro programa similar).
-3. Ativar o serviço Apache e MySQL.
-4. Abrir o seu browser de preferência e digitar localhost no URL.
-5. Na primeira vez que abrir este site no seu dispositivo, aceder a localhost\install.php para instalar a base de dados. Caso queira a validação de códigos postais funcional, deverá correr o ficheiro insert_cp.py uma vez para inserção dos CPs na base de dados.
-   
-Sempre que reiniciar o seu dispositivo, apenas precisará repetir os passos 2, 3 e 4.
+Em alternativa, para ver a funcionar pode fazê-lo através dos seguintes passos:
+1. Instalar Xamp ou programa similar.
+2. Transferir e colocar a pasta CineMania dentro do xamp ("...\xampp\htdocs").
+3. Abrir Xamp e ativar o serviço Apache e MySQL.
+4. Abrir o seu browser de preferência e digitar localhost no URL para aceder ao Cinemania.
+5. Caso pretenda funcionalidades de base de dados, na primeira vez que abrir este site no seu dispositivo, aceder a localhost\install.php para instalar a base de dados.
